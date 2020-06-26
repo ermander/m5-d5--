@@ -13,6 +13,9 @@ const uniqid = require("uniqid")
 // Importo fs-extra
 const fs = require("fs-extra")
 
+// Import express-validator
+const expressValidator = require("express-validator")
+
 // Creo la mia variabile contenente il percorso del file da utilizzare
 const studentFilePath = path.join(__dirname, "students.json")
 
@@ -48,7 +51,8 @@ studentsRouter.get("/:id", (req, res) => {
     res.send(studentFound)
 })
 
-studentsRouter.post("/", (req, res) => {
+studentsRouter.post("/",
+ (req, res) => {
     const newStudent = {
         ...req.body, 
         id: uniqid(), 
