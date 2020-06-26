@@ -13,6 +13,9 @@ const server = express()
 // Dichiaro la porta/e sulla/e quale/i sarà avviato il mio server
 const port = process.env.PORT || 3002
 
+// Importo una funzione per leggere il body di una richiesta in arrivo (post, put ecc)
+server.use(express.json())
+
 /*
  Permetto al server di usare studentsRouter e projectsRouter.
 "/students o /projects" sarà il nostro percorso (path) aggiunto all'URL di base 
